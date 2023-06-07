@@ -36,3 +36,13 @@ $ yarn run start:dev
 # production mode
 $ yarn run start:prod
 ```
+
+## Production Build
+
+1. Create .env.prod.
+2. Set environment variables.
+3. Create new Docker image.
+
+``` bash
+  $ docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+````
