@@ -1,8 +1,4 @@
-import {
-  Injectable,
-  InternalServerErrorException,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Country, City, State } from './entities';
@@ -19,17 +15,6 @@ export class GeolocationService {
   ) {}
 
   //#region Country
-  async createCountry(country) {
-    try {
-      const c = this.countryRepository.create(country);
-      this.countryRepository.save(c);
-    } catch (error) {
-      console.log(error);
-      throw new InternalServerErrorException(
-        'Unexpected error, check server logs',
-      );
-    }
-  }
   async findAllCountries() {
     return await this.countryRepository.find({});
   }

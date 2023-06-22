@@ -10,6 +10,7 @@ import {
   IsOptional,
   IsArray,
   IsBoolean,
+  IsEmail,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { CreateAddressDto, CreateProfileDto } from '../';
@@ -31,12 +32,7 @@ export class UserDto {
   })
   @IsString()
   @MinLength(8)
-  @Matches(
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-    {
-      message: 'Enter a valid email address',
-    },
-  )
+  @IsEmail()
   email: string;
 
   @ApiProperty({

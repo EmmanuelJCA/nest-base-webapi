@@ -49,6 +49,13 @@ export class UserService {
     return user;
   }
 
+  async findOnePlain(email: string): Promise<User> {
+    return await this.userRepository.findOne({
+      where: { email },
+      select: { userId: true, email: true, password: true, isActive: true },
+    });
+  }
+
   async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
     const {
       address: addressDb,

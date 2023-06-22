@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CommonModule } from './common/common.module';
 import { UserModule } from './user/user.module';
 import { GeolocationModule } from './geolocation/geolocation.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { GeolocationModule } from './geolocation/geolocation.module';
     }),
     UserModule,
     GeolocationModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

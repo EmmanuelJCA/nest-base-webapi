@@ -12,5 +12,6 @@ import { GeolocationModule } from 'src/geolocation/geolocation.module';
     TypeOrmModule.forFeature([User, Profile, Address]),
     GeolocationModule,
   ],
+  exports: [UserService],
 })
 export class UserModule {}
