@@ -15,6 +15,12 @@ export class AuthController {
     private readonly userService: UserService,
   ) {}
 
+  @Get('check-status')
+  @Auth()
+  checkAuthStatus(@GetUser() user: User) {
+    return this.authService.checkAuthStatus(user);
+  }
+
   @Post('signup')
   createUser(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
@@ -23,11 +29,5 @@ export class AuthController {
   @Post('signin')
   signin(@Body() loginUserDto: LoginUserDto) {
     return this.authService.signin(loginUserDto);
-  }
-
-  @Get('check-status')
-  @Auth()
-  checkAuthStatus(@GetUser() user: User) {
-    return this.authService.checkAuthStatus(user);
   }
 }
