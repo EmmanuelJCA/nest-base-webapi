@@ -10,12 +10,12 @@
 # BaseAPI
 
 ## Environment Variables
-1. Clone the .env.template file and rename it to env.
+1. Clone the .env.template file and rename it to .env.
 2. Change environment variables.
 
 ## Lift the database
 ```bash
-$ docker-compose up -d
+$ docker-compose -f docker-compose.yaml --env-file .env up --build
 ```
 
 ## Installation
@@ -28,11 +28,11 @@ $ yarn install
 
 ```bash
 # development
-$ yarn run start
+$ yarn start
 
 # watch mode
-$ yarn run start:dev
+$ yarn start:dev
 
 # production mode
-$ yarn run start:prod
+$ yarn start:prod
 ```
