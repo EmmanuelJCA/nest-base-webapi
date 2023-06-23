@@ -4,7 +4,7 @@ import * as bcrypt from 'bcrypt';
 import { UserService } from '../user/user.service';
 import { User } from 'src/user/entities';
 import { JwtPayload } from './interfaces';
-import { LoginUserDto } from './dto';
+import { SigninDto } from './dto';
 
 @Injectable()
 export class AuthService {
@@ -13,8 +13,8 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async signin(loginUserDto: LoginUserDto) {
-    const { email, password } = loginUserDto;
+  async signin(signinDto: SigninDto) {
+    const { email, password } = signinDto;
     const user = await this.userService.findOnePlain(email);
 
     if (!user) throw new UnauthorizedException('Invalid credentials');
