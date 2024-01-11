@@ -12,6 +12,7 @@ async function bootstrap() {
   const logger = new Logger('Bootstrap');
 
   // App global config
+  app.enableCors();
   app.setGlobalPrefix('api');
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
   app.useGlobalPipes(
