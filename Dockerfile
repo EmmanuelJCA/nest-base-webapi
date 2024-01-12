@@ -1,7 +1,7 @@
 FROM postgres
 COPY ./sql/schemas.sql /docker-entrypoint-initdb.d/
 
-FROM node:20.10.0
+FROM node:20.11.0
 
 # Create app directory, this is in our container/in our image
 WORKDIR /app
