@@ -1,10 +1,10 @@
 FROM postgres
 COPY ./sql/schemas.sql /docker-entrypoint-initdb.d/
 
-FROM node:18
+FROM node:20.10.0
 
 # Create app directory, this is in our container/in our image
-WORKDIR /emmanuel/src/app
+WORKDIR /app
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -20,5 +20,4 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 8080
 CMD [ "node", "dist/main" ]
